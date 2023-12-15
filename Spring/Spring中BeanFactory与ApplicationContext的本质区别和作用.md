@@ -1,0 +1,16 @@
+# Spring中BeanFactory与ApplicationContext的本质区别和作用
+
+BeanFactory是bean工厂，是spring核心的接口，实现了ioc的功能，applicationcontext是应用上下文继承beanfactory，比benafactory更强大，拓展了许多特性。
+
+都可以认为是spring的容器。
+
+但是beanfactory是懒加载，只有用到bean才会加载，而applicationcontext会在初始化容器的时候加载所有的bean。
+
+beanfactory初始化容器的时候并没有实例化bean，如果bean的属性没有全部注入，只有调用getbean方法的时候就会报错。而applicaitoncontext在初始化的时候就会全部注入属性，如果没有全部注入就会报错，因此开发首选applicationcontext。
+
+二者作用：
+
+beanfactory负责管理bean生命周期，实例化，创建，维护bean的依赖关系。
+
+applicationcontext除了拥有beanfactory的全部功能外，还支持国际化，事件传递等功能
+
