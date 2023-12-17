@@ -2,10 +2,12 @@
 
 ### 全局锁
 
+锁定整个数据库的表为只读状态
+
 - 只能读取，其他操作会被阻塞
 - 作用：用于备份表数据
 - 开启命令：flush tables with read lock
-- 关闭命令：unlock tables
+- 关闭命令：unlock tables或者关闭连接
 - 代替品：使用mvcc机制读取数据
 
 ### 表级锁
@@ -78,8 +80,6 @@ s和x锁都是在事务结束之后才释放的。
 - record lock,锁住某一行
 - gap lock,锁住范围内的行，但是不包括本身
 - next-key lock,前面的结合，既锁住当前，也锁一定范围的
-
-
 
 #### record lock
 
