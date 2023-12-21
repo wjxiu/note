@@ -27,7 +27,7 @@
 
 ## Spring事务失效的场景
 - 数据库引擎不支持事务
-- 不是public方法
+- 非public方法，静态方法
 - 没有被spring管理
 - 自身调用，直接调用@transactional的方法
 - 没有配置事务管理器
